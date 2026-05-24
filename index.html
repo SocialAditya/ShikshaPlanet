@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shiksha Planet Publications | Premium Competitive Exam Books</title>
+  <meta name="description" content="Shiksha Planet Publications — India's trusted source for competitive exam preparation books, MCQ Masterbooks, practice series and study materials for aspirants." />
+  <meta property="og:title" content="Shiksha Planet Publications" />
+  <meta property="og:description" content="Premium competitive exam books and MCQ masterbooks for serious aspirants." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand" aria-label="Shiksha Planet Publications home">
+        <div class="brand-logo" style="width: 44px; height: 44px; border-radius: 50%; background: white; margin-right: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+          <img src="images/logo.png" alt="Shiksha Planet Logo" style="width: 90%; height: 90%; object-fit: contain;" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-main">Shiksha Planet Publications</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#products" class="nav-link">Books</a>
+        <a href="https://www.youtube.com/@sangeetplanet" target="_blank" rel="noopener noreferrer" class="nav-link">Youtube</a>
+        <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+        <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="nav-link">Our Courses</a>
+      </nav>
+
+      <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer"
+         class="btn btn-portal" id="visitPortalBtn" aria-label="Visit Main Portal – Shiksha Planet">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Visit Main Portal
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+    <nav class="mobile-nav-links" aria-label="Mobile navigation">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#products" class="mobile-nav-link">Books</a>
+      <a href="https://www.youtube.com/@sangeetplanet" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Youtube</a>
+      <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Instagram</a>
+      <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Our Courses</a>
+    </nav>
+    <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="btn btn-portal mobile-portal-btn">
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      Visit Main Portal
+    </a>
+  </div>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        India's #1 MCQ Masterbook Series
+      </div>
+      <h1 class="hero-headline">
+        Ace Every Music Exam with<br/>
+        <span class="hero-gradient-text">Shiksha Planet</span><br/>
+        Courses &amp; Books
+      </h1>
+      <p class="hero-desc">
+        Thousands of curated MCQs, topic-wise practice sets, and exam-ready study material — designed by experts, trusted by toppers across India.
+      </p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn btn-primary btn-large" id="exploreBtn">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+          Explore Masterbooks
+        </a>
+        <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-large" id="heroPortalBtn">
+          Explore our Courses
+          <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">50,000+</span>
+          <span class="stat-label">Students Served</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">5+ Yrs</span>
+          <span class="stat-label">Excellence</span>
+        </div>
+      </div>
+      
+      <!-- Promotional Poster Banner -->
+      <div class="hero-banner-wrap" style="position: relative; margin-top: 48px; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto; transition: transform 0.3s ease;">
+        <div class="badge-new-batch">🔥 New Batch</div>
+        <a href="https://www.shikshaplanet.in/new-courses/49-bpsc-tre-4-music-new-batch" target="_blank" rel="noopener noreferrer" style="display: block; cursor: pointer; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid var(--white);">
+          <img src="images/course_banner.png" alt="BPSC TRE 4.0 TGT PGT Course Banner" style="width: 100%; height: auto; display: block; object-fit: cover;" onmouseover="this.parentElement.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.parentElement.style.transform='scale(1)'" />
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       TRUST STRIP
+  ============================================================ -->
+  <section class="trust-strip" aria-label="Trusted by exam aspirants">
+    <div class="container trust-inner">
+      <p class="trust-label">Trusted by aspirants preparing for</p>
+      <div class="trust-badges">
+        <span class="trust-badge">BPSC TRE</span>
+        <span class="trust-badge">KVS / NVS / EMRS</span>
+        <span class="trust-badge">DSSSB</span>
+        <span class="trust-badge">UP TGT / PGT</span>
+        <span class="trust-badge">CUET</span>
+        <span class="trust-badge">NET</span>
+        <span class="trust-badge">All Music Teacher Recruitment Exams</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT US
+  ============================================================ -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div class="about-visual" aria-hidden="true">
+        <div class="about-card-stack">
+          <div class="about-center-icon">
+            <img src="images/logo.png" alt="Shiksha Planet Logo" style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;" />
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">Empowering Aspirants<br/>Since 2021</h2>
+        <p class="about-desc">
+          <strong>Shiksha Planet</strong><br/>
+          2021 से शुरू हुआ यह सफर आज हजारों विद्यार्थियों की सफलता का आधार बन चुका है। सटीक मार्गदर्शन और बेहतरीन कंटेंट के जरिए हमने अनगिनत अभ्यर्थियों को उनके लक्ष्य तक पहुँचाने में मदद की है। आज ही हमारे परिवार का हिस्सा बनें!
+        </p>
+        <div class="section-tag" style="margin-top: 48px;">Editorial Board</div>
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 24px;">Shiksha Planet Editorial Board</h2>
+        <p class="about-desc">
+          The Shiksha Planet Editorial Board is a dedicated team of eminent educators, music scholars, and subject matter experts committed to excellence in teacher recruitment exams. With deep-rooted expertise in Indian Classical Music and a profound understanding of competitive exam patterns—including KVS, NVS, EMRS, BPSC TRE, DSSSB, UP TGT/PGT, CUET, UGC NET, and all Music Teacher Recruitment and Entrance Exams—the board focuses on creating high-quality, research-based content.
+        </p>
+        <p class="about-desc">
+          The 'Music MCQs Masterbook' is the result of an extensive analysis of previous years' papers and the latest patterns of various competitive exams, ensuring that every aspirant has the most relevant and accurate resource to achieve their dream career.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURED PRODUCTS
+  ============================================================ -->
+  <section class="products section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Featured Books</div>
+        <h2 class="section-title">Our Bestselling Masterbooks</h2>
+        <p class="section-subtitle">Comprehensive MCQ collections trusted by toppers — available on Shiksha Planet</p>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- Book 1 -->
+        <article class="product-card" id="productMusicMCQ">
+          <div class="product-badge">Bestseller</div>
+          <div class="product-img-wrap">
+            <img src="images/music_mcq_book.png" alt="MUSIC MCQs Masterbook cover" class="product-img" loading="lazy" />
+            <div class="product-img-glow"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Music · Exam Prep</div>
+            <h3 class="product-title">MUSIC MCQs Masterbook</h3>
+            <p class="product-desc">1000+ topic-wise MCQs covering Hindustani, Carnatic, Western, and Music Theory for UGC NET, TET and state music exams.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-curr">₹399</span>
+                <span class="price-old">₹599</span>
+                <span class="price-discount">33% OFF</span>
+              </div>
+              <div class="buy-dropdown-wrap" id="buyMusicWrap">
+                <button class="btn btn-buy" id="buyMusicBtn" onclick="document.getElementById('buyMusicWrap').classList.toggle('open'); event.stopPropagation();">
+                  Buy Now
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-right:-4px;"><path d="m18 15-6-6-6 6"/></svg>
+                </button>
+                <div class="buy-dropdown-menu">
+                  <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Amazon
+                  </a>
+                  <a href="https://www.flipkart.com" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2874f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    Flipkart
+                  </a>
+                  <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                    Our Website
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="products-cta">
+        <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-large" id="viewAllBooksBtn">
+          View All Books on Shiksha Planet
+          <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LATEST VIDEO
+  ============================================================ -->
+  <section class="latest-video section" id="video" aria-label="Our Latest Video">
+    <div class="container reveal">
+      <div class="section-header" style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 40px;">
+        <div class="section-tag" style="justify-content: center; margin-bottom: 12px;">Watch &amp; Learn</div>
+        <h2 class="section-title">Our Latest Video</h2>
+        <p style="color: var(--gray-500); font-size: 1.05rem;">Check out our newest content on YouTube. Subscribe for daily practice MCQs and exam updates!</p>
+      </div>
+      
+      <div class="video-container reveal" style="max-width: 860px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--gray-200); background: #000;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/hWtbzKx9obE" 
+            title="Our Latest Video" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY CHOOSE US
+  ============================================================ -->
+  <section class="features section" id="features" aria-label="Why choose Shiksha Planet Publications">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">Built for Exam Success</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" id="featureQuality">
+          <div class="feature-icon-wrap" style="--fi-color:#3b82f6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3>Quality Content</h3>
+          <p>Every MCQ is verified by subject experts and aligned with current exam syllabi.</p>
+        </div>
+        <div class="feature-card" id="featureAffordable">
+          <div class="feature-icon-wrap" style="--fi-color:#10b981">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Affordable Pricing</h3>
+          <p>Premium study materials at prices that every aspiring student can afford.</p>
+        </div>
+        <div class="feature-card" id="featureUpdated">
+          <div class="feature-icon-wrap" style="--fi-color:#f59e0b">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"/>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+            </svg>
+          </div>
+          <h3>Regularly Updated</h3>
+          <p>Content is refreshed every exam cycle to reflect the latest trends and patterns.</p>
+        </div>
+        <div class="feature-card" id="featureComprehensive">
+          <div class="feature-icon-wrap" style="--fi-color:#8b5cf6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3>Comprehensive Coverage</h3>
+          <p>From niche subjects like Music to mainstream GK — we cover it all in one place.</p>
+        </div>
+        <div class="feature-card" id="featureCommunity">
+          <div class="feature-icon-wrap" style="--fi-color:#ef4444">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Active Community</h3>
+          <p>Join thousands of aspirants on our YouTube and Instagram for free resources daily.</p>
+        </div>
+        <div class="feature-card" id="featureSupport">
+          <div class="feature-icon-wrap" style="--fi-color:#06b6d4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.61 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85A16 16 0 0 0 14 14.92l.95-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.91 16.92z"/>
+            </svg>
+          </div>
+          <h3>WhatsApp Support</h3>
+          <p>Get instant answers to your queries directly on WhatsApp — we're always there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============================================================
+       SOCIAL CONNECT / COMMUNITY
+  ============================================================ -->
+  <section class="community section" id="community">
+    <div class="community-bg" aria-hidden="true">
+      <div class="community-blob cb-1"></div>
+      <div class="community-blob cb-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag section-tag--light">Our Community</div>
+        <h2 class="section-title section-title--light">Connect &amp; Learn Together</h2>
+        <p class="section-subtitle section-subtitle--light">Free resources, live sessions, and daily practice content — join our growing family</p>
+      </div>
+      <div class="social-cards">
+
+        <!-- YouTube Card -->
+        <a href="https://www.youtube.com/@sangeetplanet" target="_blank" rel="noopener noreferrer"
+           class="social-card social-card--yt" id="youtubeCard" aria-label="Subscribe on YouTube – Sangeet Planet">
+          <div class="social-card-glow"></div>
+          <div class="social-icon-wrap social-icon-wrap--yt">
+            <!-- YouTube SVG -->
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-svg" aria-hidden="true">
+              <rect width="48" height="48" rx="12" fill="#FF0000"/>
+              <path d="M38.4 18.4a4 4 0 0 0-2.8-2.8C33.2 15 24 15 24 15s-9.2 0-11.6.6a4 4 0 0 0-2.8 2.8C9 20.8 9 24 9 24s0 3.2.6 5.6a4 4 0 0 0 2.8 2.8c2.4.6 11.6.6 11.6.6s9.2 0 11.6-.6a4 4 0 0 0 2.8-2.8c.6-2.4.6-5.6.6-5.6s0-3.2-.6-5.6z" fill="#fff"/>
+              <polygon points="21,28 28.5,24 21,20" fill="#FF0000"/>
+            </svg>
+          </div>
+          <div class="social-card-text">
+            <span class="social-action">Subscribe on YouTube</span>
+            <span class="social-handle">@sangeetplanet</span>
+            <span class="social-cta-arrow">→</span>
+          </div>
+          <div class="social-card-stat">
+            <span class="stat-icon">▶</span>
+            <span>Music & Exam Videos Daily</span>
+          </div>
+        </a>
+
+        <!-- Instagram Card -->
+        <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer"
+           class="social-card social-card--ig" id="instagramCard" aria-label="Follow us on Instagram – Shiksha Planet">
+          <div class="social-card-glow social-card-glow--ig"></div>
+          <div class="social-icon-wrap social-icon-wrap--ig">
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-svg" aria-hidden="true">
+              <rect width="48" height="48" rx="12" fill="url(#igGrad)"/>
+              <rect x="13" y="13" width="22" height="22" rx="6" stroke="#fff" stroke-width="2.2"/>
+              <circle cx="24" cy="24" r="6" stroke="#fff" stroke-width="2.2"/>
+              <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"/>
+              <defs>
+                <linearGradient id="igGrad" x1="0" y1="48" x2="48" y2="0">
+                  <stop stop-color="#f58529"/>
+                  <stop offset="0.5" stop-color="#dd2a7b"/>
+                  <stop offset="1" stop-color="#8134af"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="social-card-text">
+            <span class="social-action">Follow us on Instagram</span>
+            <span class="social-handle">@shikshaplanet.in</span>
+            <span class="social-cta-arrow">→</span>
+          </div>
+          <div class="social-card-stat">
+            <span class="stat-icon">♥</span>
+            <span>Daily Tips & Study Reels</span>
+          </div>
+        </a>
+
+        <!-- Website Card -->
+        <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer"
+           class="social-card social-card--web" id="websiteCard" aria-label="Visit Shiksha Planet main portal">
+          <div class="social-card-glow social-card-glow--web"></div>
+          <div class="social-icon-wrap social-icon-wrap--web">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-svg" aria-hidden="true">
+              <rect width="48" height="48" rx="12" fill="url(#webGrad)"/>
+              <circle cx="24" cy="24" r="11" stroke="#fff" stroke-width="2"/>
+              <line x1="13" y1="24" x2="35" y2="24" stroke="#fff" stroke-width="2"/>
+              <path d="M24 13c-3 3-4.5 7-4.5 11s1.5 8 4.5 11" stroke="#fff" stroke-width="2"/>
+              <path d="M24 13c3 3 4.5 7 4.5 11s-1.5 8-4.5 11" stroke="#fff" stroke-width="2"/>
+              <defs>
+                <linearGradient id="webGrad" x1="0" y1="0" x2="48" y2="48">
+                  <stop stop-color="#1e3a8a"/>
+                  <stop offset="1" stop-color="#3b82f6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="social-card-text">
+            <span class="social-action">Visit Main Portal</span>
+            <span class="social-handle">shikshaplanet.in</span>
+            <span class="social-cta-arrow">→</span>
+          </div>
+          <div class="social-card-stat">
+            <span class="stat-icon">🌐</span>
+            <span>Books, Notes & Resources</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials section" id="testimonials" aria-label="Student testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Student Stories</div>
+        <h2 class="section-title">What Our Aspirants Say</h2>
+      </div>
+      <div class="testi-grid">
+        <blockquote class="testi-card" id="testiRahul">
+          <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+          <p>"MUSIC MCQs Masterbook mere BPSC TRE 4 Music paper ke liye ek absolute game-changer thi. Iske topic-wise arrangement ne revision ko bahut aasan bana diya!"</p>
+          <footer>
+            <div class="testi-avatar" aria-hidden="true">R</div>
+            <div>
+              <strong>Rahul Sharma</strong>
+              <span>UGC NET Music Qualifier</span>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi-card" id="testiPriya">
+          <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+          <p>"I cleared my state TET with the Hindi Literature book from Shiksha Planet. The explanations are detailed and the price is very reasonable!"</p>
+          <footer>
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)" aria-hidden="true">P</div>
+            <div>
+              <strong>Priya Verma</strong>
+              <span>TET Qualified, UP</span>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi-card" id="testiAmit">
+          <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+          <p>"GK & Current Affairs Masterbook is the most comprehensive compilation I've found. Covers everything needed for SSC and state PCS exams. Highly recommended!"</p>
+          <footer>
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#10b981,#3b82f6)" aria-hidden="true">A</div>
+            <div>
+              <strong>Amit Kumar</strong>
+              <span>SSC CGL Aspirant, Bihar</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT & SUPPORT
+  ============================================================ -->
+  <section class="contact section" id="contact">
+    <div class="container contact-grid">
+
+      <!-- Enquiry Form -->
+      <div class="contact-form-wrap" id="contactFormSection">
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-title">Send Us Your Query</h2>
+        <p class="contact-subtitle">Fill the form below and we'll get back to you within 24 hours, or reach us directly on WhatsApp for instant support.</p>
+        <form class="enquiry-form" id="enquiryForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formName">Full Name</label>
+              <input type="text" id="formName" name="name" placeholder="Your full name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input type="tel" id="formPhone" name="phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formEmail">Email Address</label>
+            <input type="email" id="formEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="formSubject">Subject / Book Interested In</label>
+            <select id="formSubject" name="subject">
+              <option value="" disabled selected>Select a topic…</option>
+              <option value="music">MUSIC MCQs Masterbook</option>
+              <option value="history">History MCQs Masterbook</option>
+              <option value="gk">GK & Current Affairs Masterbook</option>
+              <option value="hindi">Hindi Literature MCQs Masterbook</option>
+              <option value="other">Other / General Query</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Your Message</label>
+            <textarea id="formMessage" name="message" rows="4" placeholder="Tell us how we can help you…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large form-submit" id="formSubmitBtn">
+            Send Enquiry
+            <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+          <div class="form-success" id="formSuccess" role="alert" aria-live="polite" hidden>
+            ✅ Thank you! We'll be in touch soon.
+          </div>
+        </form>
+      </div>
+
+      <!-- Contact Sidebar -->
+      <div class="contact-sidebar" id="contactSidebar">
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/919005102878?text=Hello%20Shiksha%20Planet,%20I%20have%20a%20query"
+           target="_blank" rel="noopener noreferrer"
+           class="whatsapp-cta" id="whatsappCtaBtn" aria-label="Chat on WhatsApp – For Any Query">
+          <div class="wa-icon-wrap" aria-hidden="true">
+            <!-- WhatsApp SVG -->
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="wa-svg">
+              <circle cx="24" cy="24" r="24" fill="#25D366"/>
+              <path d="M24 10.4C16.5 10.4 10.4 16.5 10.4 24c0 2.4.6 4.7 1.8 6.7L10 38l7.5-2.2c1.9 1.1 4.1 1.7 6.5 1.7 7.5 0 13.6-6.1 13.6-13.6S31.5 10.4 24 10.4zm7.5 18.9c-.3.9-1.8 1.7-2.5 1.8-.7.1-1.4.3-4.3-.9-3.6-1.5-5.9-5.1-6.1-5.3-.2-.3-1.6-2.1-1.6-4.1s1-3 1.4-3.4c.4-.4.8-.5 1-.5h.8c.3 0 .6.1.9.7l1.2 3c.1.3.1.6-.1.8l-.6.9c-.2.2-.4.5-.2.9.3.4 1.1 1.6 2.4 2.7 1.6 1.4 3 1.9 3.5 2.1.4.2.7.1 1-.2l.9-1c.3-.4.6-.3 1-.1l3 1.4c.4.2.7.3.7.6.1.4-.1 1.6-.4 2.6z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="wa-cta-text">
+            <span class="wa-label">For Any Query</span>
+            <strong class="wa-action">WhatsApp Us</strong>
+            <span class="wa-number">+91 90051 02878</span>
+          </div>
+          <svg class="wa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <!-- Contact Info -->
+        <div class="contact-info-cards">
+          <div class="info-card" id="infoCardEmail">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Email Us</strong>
+              <span>contact@shikshaplanet.in</span>
+            </div>
+          </div>
+          <div class="info-card" id="infoCardPortal">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Our Portal</strong>
+              <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">shikshaplanet.in</a>
+            </div>
+          </div>
+          <div class="info-card" id="infoCardYoutube">
+            <div class="info-icon info-icon--yt">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 0-3.77-3.37C14.19 3 12 3 12 3s-2.19 0-3.82.32A4.83 4.83 0 0 0 4.41 6.69 50.77 50.77 0 0 0 4 12a50.77 50.77 0 0 0 .41 5.31 4.83 4.83 0 0 0 3.77 3.37C9.81 21 12 21 12 21s2.19 0 3.82-.32a4.83 4.83 0 0 0 3.77-3.37A50.77 50.77 0 0 0 20 12a50.77 50.77 0 0 0-.41-5.31zM10 15V9l5 3-5 3z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>YouTube</strong>
+              <a href="https://www.youtube.com/@sangeetplanet" target="_blank" rel="noopener noreferrer">@sangeetplanet</a>
+            </div>
+          </div>
+          <div class="info-card" id="infoCardInstagram">
+            <div class="info-icon info-icon--ig">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer">@shikshaplanet.in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container footer-top-inner">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-logo">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="40" height="40" rx="10" fill="url(#logoGrad2)"/>
+                <text x="20" y="27" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="16" fill="#fff">AV</text>
+                <defs>
+                  <linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40">
+                    <stop stop-color="#1e3a8a"/><stop offset="1" stop-color="#3b82f6"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-main">Shiksha Planet Publications</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Empowering India's competitive exam aspirants with premium MCQ Masterbooks and practice-driven study materials.</p>
+          <div class="footer-social-icons">
+            <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="footer-icon-btn footer-icon-web" id="footerWebBtn" aria-label="Visit Shiksha Planet website">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@sangeetplanet" target="_blank" rel="noopener noreferrer" class="footer-icon-btn footer-icon-yt" id="footerYtBtn" aria-label="Subscribe on YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 0-3.77-3.37C14.19 3 12 3 12 3s-2.19 0-3.82.32A4.83 4.83 0 0 0 4.41 6.69 50.77 50.77 0 0 0 4 12a50.77 50.77 0 0 0 .41 5.31 4.83 4.83 0 0 0 3.77 3.37C9.81 21 12 21 12 21s2.19 0 3.82-.32a4.83 4.83 0 0 0 3.77-3.37A50.77 50.77 0 0 0 20 12a50.77 50.77 0 0 0-.41-5.31zM10 15V9l5 3-5 3z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="footer-icon-btn footer-icon-ig" id="footerIgBtn" aria-label="Follow on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://wa.me/919005102878?text=Hello%20Shiksha%20Planet,%20I%20have%20a%20query" target="_blank" rel="noopener noreferrer" class="footer-icon-btn footer-icon-wa" id="footerWaBtn" aria-label="WhatsApp us">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.34A9.93 9.93 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.14 13.89c-.22.62-1.3 1.2-1.78 1.27-.48.07-.95.22-3.11-.65-2.6-1.04-4.25-3.65-4.38-3.82-.13-.17-1.12-1.5-1.12-2.86 0-1.37.71-2.04.96-2.32.25-.28.55-.34.73-.34h.56c.18 0 .44.07.67.51l.87 2.07c.15.35.08.75-.09 1.02l-.45.62c-.15.2-.32.42-.14.7.19.27.84 1.3 1.79 2.03 1.24 1.03 2.29 1.35 2.61 1.5.32.15.51.13.7-.08l.63-.72c.22-.25.44-.18.74-.07l2.17 1.02c.27.13.44.21.44.44 0 .3-.13 1.12-.37 1.68z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-group-title">Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Our Books</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">Main Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-group-title">Our Books</h4>
+          <ul>
+            <li><a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">MUSIC MCQs Masterbook</a></li>
+            <li><a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">History MCQs Masterbook</a></li>
+            <li><a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">GK & Current Affairs</a></li>
+            <li><a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">Hindi Literature MCQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-group-title">Connect With Us</h4>
+          <ul>
+            <li><a href="https://www.youtube.com/@sangeetplanet" target="_blank" rel="noopener noreferrer">YouTube – @sangeetplanet</a></li>
+            <li><a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer">Instagram – @shikshaplanet.in</a></li>
+            <li><a href="https://wa.me/919005102878?text=Hello%20Shiksha%20Planet,%20I%20have%20a%20query" target="_blank" rel="noopener noreferrer">WhatsApp – +91 90051 02878</a></li>
+            <li><a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">shikshaplanet.in</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© <span id="footerYear"></span> Shiksha Planet Publications. All Rights Reserved.</p>
+        <p class="footer-bottom-links">
+          <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP WIDGET
+  ============================================================ -->
+  <a href="https://wa.me/919005102878?text=Hello%20Shiksha%20Planet,%20I%20have%20a%20query"
+     target="_blank" rel="noopener noreferrer"
+     class="float-wa" id="floatingWaBtn" aria-label="WhatsApp us for instant support">
+    <div class="float-wa-tooltip">Chat with us!</div>
+    <div class="float-wa-pulse" aria-hidden="true"></div>
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="float-wa-svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="24" fill="#25D366"/>
+      <path d="M24 10.4C16.5 10.4 10.4 16.5 10.4 24c0 2.4.6 4.7 1.8 6.7L10 38l7.5-2.2c1.9 1.1 4.1 1.7 6.5 1.7 7.5 0 13.6-6.1 13.6-13.6S31.5 10.4 24 10.4zm7.5 18.9c-.3.9-1.8 1.7-2.5 1.8-.7.1-1.4.3-4.3-.9-3.6-1.5-5.9-5.1-6.1-5.3-.2-.3-1.6-2.1-1.6-4.1s1-3 1.4-3.4c.4-.4.8-.5 1-.5h.8c.3 0 .6.1.9.7l1.2 3c.1.3.1.6-.1.8l-.6.9c-.2.2-.4.5-.2.9.3.4 1.1 1.6 2.4 2.7 1.6 1.4 3 1.9 3.5 2.1.4.2.7.1 1-.2l.9-1c.3-.4.6-.3 1-.1l3 1.4c.4.2.7.3.7.6.1.4-.1 1.6-.4 2.6z" fill="#fff"/>
+    </svg>
+  </a>
+
+  <!-- Scroll-to-top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

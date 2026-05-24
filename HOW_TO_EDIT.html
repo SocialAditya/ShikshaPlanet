@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Editing Guide — AV Publications & Shiksha Planet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #1e3a8a;
+      --blue-mid: #2563eb;
+      --blue-light: #3b82f6;
+      --blue-pale: #eff6ff;
+      --green: #10b981;
+      --green-pale: #ecfdf5;
+      --orange: #f59e0b;
+      --orange-pale: #fffbeb;
+      --red: #ef4444;
+      --red-pale: #fef2f2;
+      --purple: #8b5cf6;
+      --purple-pale: #f5f3ff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    /* ── TOP HEADER ── */
+    .top-header {
+      background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%);
+      color: white;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .top-header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .top-header p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .header-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hbadge {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* ── NAVIGATION TABS ── */
+    .tab-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 2px solid var(--gray-200);
+      padding: 0 24px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tab-nav::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      padding: 14px 18px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .tab-btn:hover { color: var(--blue-mid); }
+    .tab-btn.active {
+      color: var(--blue-mid);
+      border-bottom-color: var(--blue-mid);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* ── TAB PANELS ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── SECTION CARDS ── */
+    .edit-section {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .edit-section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .edit-section-header:hover { background: var(--gray-50); }
+    .section-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .edit-section-header h3 {
+      flex: 1;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    .edit-section-header .line-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid #bfdbfe;
+    }
+    .chevron {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      transition: transform 0.2s;
+    }
+    .edit-section.open .chevron { transform: rotate(180deg); }
+
+    .edit-section-body {
+      display: none;
+      padding: 24px;
+    }
+    .edit-section.open .edit-section-body { display: block; }
+
+    /* ── INFO BOXES ── */
+    .info-box {
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-left: 4px solid;
+    }
+    .info-box.tip { background: var(--green-pale); border-color: var(--green); color: #065f46; }
+    .info-box.warn { background: var(--orange-pale); border-color: var(--orange); color: #78350f; }
+    .info-box.danger { background: var(--red-pale); border-color: var(--red); color: #7f1d1d; }
+    .info-box.info { background: var(--blue-pale); border-color: var(--blue-light); color: #1e3a8a; }
+    .info-box strong { font-weight: 700; display: block; margin-bottom: 3px; }
+
+    /* ── CODE BLOCKS ── */
+    .code-wrap {
+      position: relative;
+      margin: 12px 0;
+    }
+    .code-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray-500);
+      margin-bottom: 4px;
+    }
+    .code-label.before { color: var(--red); }
+    .code-label.after { color: var(--green); }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px 18px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      line-height: 1.7;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+    pre .hl { color: #fbbf24; font-weight: bold; }  /* highlight */
+    pre .green { color: #86efac; }
+    pre .red { color: #fca5a5; }
+    pre .comment { color: #64748b; font-style: italic; }
+    pre .blue { color: #93c5fd; }
+
+    .copy-btn {
+      position: absolute;
+      top: 28px; right: 10px;
+      background: rgba(255,255,255,.1);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,.2); }
+    .copy-btn.copied { color: #86efac; border-color: #86efac; }
+
+    /* ── STEP GUIDE ── */
+    .steps { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--gray-50);
+      border-radius: 10px;
+      border: 1px solid var(--gray-200);
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--blue-mid);
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step p { font-size: 0.9rem; color: var(--gray-700); }
+    .step p strong { color: var(--gray-900); }
+    kbd {
+      background: var(--gray-200);
+      color: var(--gray-900);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.82em;
+      font-family: monospace;
+      border: 1px solid var(--gray-300);
+    }
+
+    /* ── TABLE ── */
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+    }
+    .ref-table th {
+      background: var(--blue);
+      color: white;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+    }
+    .ref-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700);
+    }
+    .ref-table tr:hover td { background: var(--blue-pale); }
+    .ref-table .line-num {
+      font-family: monospace;
+      font-weight: 600;
+      color: var(--blue-mid);
+      background: var(--blue-pale);
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 40px;
+      border: 2px solid var(--gray-200);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--blue-light); }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-500);
+      pointer-events: none;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 14px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      transition: background 0.15s;
+      font-size: 0.93rem;
+    }
+    .faq-q:hover { background: var(--gray-50); }
+    .faq-a {
+      display: none;
+      padding: 14px 18px;
+      background: var(--gray-50);
+      font-size: 0.88rem;
+      color: var(--gray-700);
+      border-top: 1px solid var(--gray-200);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-q { background: var(--blue-pale); }
+
+    /* ── QUICK EDIT CARD ── */
+    .quick-edit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .quick-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 18px;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .quick-card:hover {
+      border-color: var(--blue-light);
+      box-shadow: 0 4px 16px rgba(37,99,235,.1);
+      transform: translateY(-2px);
+    }
+    .quick-card .qc-icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .quick-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; color: var(--gray-900); }
+    .quick-card p { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; }
+    .quick-card .qc-line {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--gray-200);
+      margin-top: 20px;
+    }
+    .page-footer a { color: var(--blue-mid); text-decoration: none; }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .tab-btn { padding: 12px 12px; font-size: 0.8rem; }
+      .container { padding: 24px 16px; }
+      pre { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <div class="top-header">
+    <h1>🛠️ Website Editing Guide</h1>
+    <p>AV Publications & Shiksha Planet — Website mein changes kaise karein, iska poora guide</p>
+    <div class="header-badges">
+      <span class="hbadge">📁 index.html — Text & Content</span>
+      <span class="hbadge">🎨 style.css — Colors & Design</span>
+      <span class="hbadge">🖼️ images/ — Book Covers</span>
+    </div>
+  </div>
+
+  <!-- ── TABS ── -->
+  <div class="tab-nav" role="tablist">
+    <button class="tab-btn active" onclick="switchTab('start', this)" role="tab">🚀 Shuru Karein</button>
+    <button class="tab-btn" onclick="switchTab('text', this)" role="tab">✏️ Text Changes</button>
+    <button class="tab-btn" onclick="switchTab('price', this)" role="tab">💰 Price & Books</button>
+    <button class="tab-btn" onclick="switchTab('links', this)" role="tab">🔗 Links</button>
+    <button class="tab-btn" onclick="switchTab('colors', this)" role="tab">🎨 Colors</button>
+    <button class="tab-btn" onclick="switchTab('images', this)" role="tab">🖼️ Images</button>
+    <button class="tab-btn" onclick="switchTab('add', this)" role="tab">➕ New Add Karein</button>
+    <button class="tab-btn" onclick="switchTab('ref', this)" role="tab">📋 Quick Ref</button>
+    <button class="tab-btn" onclick="switchTab('faq', this)" role="tab">❓ FAQ</button>
+  </div>
+
+  <div class="container">
+
+    <!-- ════════════════════════════════════
+         TAB 1: SHURU KAREIN
+    ════════════════════════════════════ -->
+    <div class="tab-panel active" id="tab-start">
+
+      <div class="info-box info">
+        <strong>📂 Sabse Pehle File Kholo</strong>
+        Folder location: <strong>Desktop → "Landing Page 2"</strong> → <code>index.html</code> file right-click karke
+        <strong>"Open with → Notepad++"</strong> ya <strong>"VS Code"</strong> se kholo.
+      </div>
+
+      <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;color:#1e3a8a">📁 File Structure — Konsi File Kya Hai?</h2>
+
+      <div class="quick-edit-grid">
+        <div class="quick-card">
+          <div class="qc-icon">📄</div>
+          <h4>index.html</h4>
+          <p>Sabse important file. Saara text, headings, prices, descriptions, links yahan hain.</p>
+          <span class="qc-line">90% changes yahan</span>
+        </div>
+        <div class="quick-card">
+          <div class="qc-icon">🎨</div>
+          <h4>style.css</h4>
+          <p>Colors, fonts, sizes, animations — website ka poora design yahan control hota hai.</p>
+          <span class="qc-line">Colors badlne ke liye</span>
+        </div>
+        <div class="quick-card">
+          <div class="qc-icon">⚙️</div>
+          <h4>script.js</h4>
+          <p>Form validation, animations, navbar scroll effect. Generally ise mat chheedo.</p>
+          <span class="qc-line">Advanced only</span>
+        </div>
+        <div class="quick-card">
+          <div class="qc-icon">🖼️</div>
+          <h4>images/ folder</h4>
+          <p>Sabhi 4 book cover images yahan hain. Nai image yahan copy karke add karo.</p>
+          <span class="qc-line">Book images</span>
+        </div>
+      </div>
+
+      <div style="margin:24px 0;">
+        <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:16px;color:#1e3a8a">⚡ 3 Easy Steps — Koi Bhi Change Karo</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <p><strong>File kholo:</strong> <code>index.html</code> ko Notepad++ ya VS Code mein kholo</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <p><strong>Text dhundho:</strong> <kbd>Ctrl</kbd> + <kbd>F</kbd> dabao, jo text dikhta hai website par, woh type karo — seedha wahan pahunch jaoge</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <p><strong>Save karo aur check karo:</strong> <kbd>Ctrl</kbd> + <kbd>S</kbd> se save karo, phir <code>index.html</code> double-click karo browser mein dekhne ke liye</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box tip">
+        <strong>💡 Best Tip!</strong>
+        <strong>VS Code + "Live Server" extension</strong> install karo. Save karte hi browser automatic refresh ho jaata hai — baar baar manually refresh nahi karna padta!
+      </div>
+
+      <div class="info-box warn">
+        <strong>⚠️ Save karna mat bhoolo!</strong>
+        Changes karne ke baad hamesha <kbd>Ctrl</kbd>+<kbd>S</kbd> dabao. Browser mein changes dikhne ke liye <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (hard refresh) dabao.
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 2: TEXT CHANGES
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-text">
+
+      <!-- Brand Name -->
+      <div class="edit-section open">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#eff6ff">🏷️</div>
+          <h3>Brand Naam / Logo Text</h3>
+          <span class="line-tag">Line 37–38 & 745–746</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <p style="margin-bottom:12px;color:#475569">Navbar aur Footer dono mein brand naam hai — <strong>dono jagah update karo.</strong></p>
+          <div class="code-wrap">
+            <div class="code-label before">⚠️ index.html — Line 37–38 (aur 745–746)</div>
+            <pre><span class="comment">&lt;!-- Brand naam — yahan change karo: --&gt;</span>
+&lt;span class="brand-main"&gt;<span class="hl">AV Publications</span>&lt;/span&gt;   <span class="comment">← Company naam</span>
+&lt;span class="brand-sub"&gt;<span class="hl">Shiksha Planet</span>&lt;/span&gt;    <span class="comment">← Sub-brand</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#eff6ff">🌟</div>
+          <h3>Hero Section (Main Banner)</h3>
+          <span class="line-tag">Line 97–106</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Lines 97–106</div>
+            <pre><span class="comment">&lt;!-- Green dot wala badge: --&gt;</span>
+<span class="hl">India's #1 MCQ Masterbook Series</span>       <span class="comment">← Line 97</span>
+
+<span class="comment">&lt;!-- Main headline (3 lines): --&gt;</span>
+<span class="hl">Ace Every Exam with</span>                    <span class="comment">← Line 100</span>
+&lt;span class="hero-gradient-text"&gt;<span class="hl">Shiksha Planet's</span>&lt;/span&gt;  <span class="comment">← Line 101</span>
+<span class="hl">Masterbooks</span>                            <span class="comment">← Line 102</span>
+
+<span class="comment">&lt;!-- Description: --&gt;</span>
+<span class="hl">Thousands of curated MCQs, topic-wise...</span>  <span class="comment">← Line 105</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#ecfdf5">📊</div>
+          <h3>Stats (50,000+ / 200+ / 10+ Yrs)</h3>
+          <span class="line-tag">Line 126–137</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Lines 126–137</div>
+            <pre>&lt;span class="stat-num"&gt;<span class="hl">50,000+</span>&lt;/span&gt;    <span class="comment">← Bada number</span>
+&lt;span class="stat-label"&gt;<span class="hl">Students Served</span>&lt;/span&gt;
+
+&lt;span class="stat-num"&gt;<span class="hl">200+</span>&lt;/span&gt;
+&lt;span class="stat-label"&gt;<span class="hl">MCQ Topics</span>&lt;/span&gt;
+
+&lt;span class="stat-num"&gt;<span class="hl">10+ Yrs</span>&lt;/span&gt;
+&lt;span class="stat-label"&gt;<span class="hl">Excellence</span>&lt;/span&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fffbeb">🏅</div>
+          <h3>Exam Badges Strip (UPSC, SSC, etc.)</h3>
+          <span class="line-tag">Line 154–161</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Lines 154–161</div>
+            <pre>&lt;span class="trust-badge"&gt;<span class="hl">UPSC</span>&lt;/span&gt;
+&lt;span class="trust-badge"&gt;<span class="hl">SSC CGL</span>&lt;/span&gt;
+&lt;span class="trust-badge"&gt;<span class="hl">UGC NET</span>&lt;/span&gt;
+<span class="comment">&lt;!-- Naya badge add karna ho: --&gt;</span>
+&lt;span class="trust-badge"&gt;<span class="green">NAYA EXAM</span>&lt;/span&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#f5f3ff">ℹ️</div>
+          <h3>About Us Section</h3>
+          <span class="line-tag">Line 217–249</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html</div>
+            <pre><span class="comment">&lt;!-- Heading (Line 217): --&gt;</span>
+&lt;h2&gt;<span class="hl">Empowering Aspirants&lt;br/&gt;Since Day One</span>&lt;/h2&gt;
+
+<span class="comment">&lt;!-- Description (Lines 218–223): --&gt;</span>
+&lt;p&gt;<span class="hl">AV Publications &amp; Shiksha Planet is a...</span>&lt;/p&gt;
+
+<span class="comment">&lt;!-- 3 Pillars (Lines 228, 235, 242): --&gt;</span>
+&lt;strong&gt;<span class="hl">Practice-Driven</span>&lt;/strong&gt;
+&lt;p&gt;<span class="hl">Thousands of curated MCQs...</span>&lt;/p&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fef2f2">⭐</div>
+          <h3>Student Reviews / Testimonials</h3>
+          <span class="line-tag">Line 554–586</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Ek review ka structure</div>
+            <pre>&lt;blockquote class="testi-card"&gt;
+  &lt;p&gt;"<span class="hl">Aapka review text yahan</span>"&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;div class="testi-avatar"&gt;<span class="hl">R</span>&lt;/div&gt;  <span class="comment">← Naam ka pehla letter</span>
+    &lt;div&gt;
+      &lt;strong&gt;<span class="hl">Rahul Sharma</span>&lt;/strong&gt;
+      &lt;span&gt;<span class="hl">UGC NET Music Qualifier</span>&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/blockquote&gt;</pre>
+          </div>
+          <div class="info-box tip">
+            <strong>Naya review add karna:</strong> Yeh poora block copy karo aur line 587 ke pehle paste karo (closing &lt;/div&gt; se pehle).
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#f0fdf4">📧</div>
+          <h3>Contact / Email Info</h3>
+          <span class="line-tag">Line 679</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Line 679</div>
+            <pre>&lt;span&gt;<span class="hl">contact@shikshaplanet.in</span>&lt;/span&gt;
+<span class="comment">← Yahan apna email daal do</span></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 3: PRICE & BOOKS
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-price">
+
+      <div class="info-box info">
+        <strong>📌 Shortcut:</strong>
+        index.html mein <kbd>Ctrl</kbd>+<kbd>F</kbd> dabao aur <strong>"price-curr"</strong> type karo — seedha price wale sections mil jaayenge.
+      </div>
+
+      <div class="edit-section open">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#eff6ff">📚</div>
+          <h3>Book 1 — MUSIC MCQs Masterbook</h3>
+          <span class="line-tag">Line 276–284</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html</div>
+            <pre>&lt;h3 class="product-title"&gt;<span class="hl">MUSIC MCQs Masterbook</span>&lt;/h3&gt;   <span class="comment">← Line 276</span>
+&lt;p class="product-desc"&gt;<span class="hl">1000+ topic-wise MCQs...</span>&lt;/p&gt;    <span class="comment">← Line 277</span>
+&lt;span class="price-curr"&gt;<span class="hl">₹399</span>&lt;/span&gt;   <span class="comment">← Selling price (Line 280)</span>
+&lt;span class="price-old"&gt;<span class="hl">₹599</span>&lt;/span&gt;    <span class="comment">← Old/cut price (Line 281)</span>
+&lt;span class="price-discount"&gt;<span class="hl">33% OFF</span>&lt;/span&gt;  <span class="comment">← Discount text (Line 282)</span>
+
+<span class="comment">&lt;!-- Badge text — Line 269: --&gt;</span>
+&lt;div class="product-badge"&gt;<span class="hl">Bestseller</span>&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fff5f5">📖</div>
+          <h3>Book 2 — History MCQs Masterbook</h3>
+          <span class="line-tag">Line 298–306</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html</div>
+            <pre>&lt;h3 class="product-title"&gt;<span class="hl">History MCQs Masterbook</span>&lt;/h3&gt;
+&lt;span class="price-curr"&gt;<span class="hl">₹349</span>&lt;/span&gt;
+&lt;span class="price-old"&gt;<span class="hl">₹499</span>&lt;/span&gt;
+&lt;span class="price-discount"&gt;<span class="hl">30% OFF</span>&lt;/span&gt;
+&lt;div class="product-badge product-badge--new"&gt;<span class="hl">New Edition</span>&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#f0fff4">🌍</div>
+          <h3>Book 3 — GK & Current Affairs Masterbook</h3>
+          <span class="line-tag">Line 320–328</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html</div>
+            <pre>&lt;h3 class="product-title"&gt;<span class="hl">GK &amp; Current Affairs Masterbook</span>&lt;/h3&gt;
+&lt;span class="price-curr"&gt;<span class="hl">₹299</span>&lt;/span&gt;
+&lt;span class="price-old"&gt;<span class="hl">₹449</span>&lt;/span&gt;
+&lt;span class="price-discount"&gt;<span class="hl">33% OFF</span>&lt;/span&gt;
+&lt;div class="product-badge product-badge--hot"&gt;<span class="hl">Hot Pick</span>&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fffbeb">📜</div>
+          <h3>Book 4 — Hindi Literature MCQs Masterbook</h3>
+          <span class="line-tag">Line 341–348</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html</div>
+            <pre>&lt;h3 class="product-title"&gt;<span class="hl">Hindi Literature MCQs Masterbook</span>&lt;/h3&gt;
+&lt;span class="price-curr"&gt;<span class="hl">₹379</span>&lt;/span&gt;
+&lt;span class="price-old"&gt;<span class="hl">₹549</span>&lt;/span&gt;
+&lt;span class="price-discount"&gt;<span class="hl">31% OFF</span>&lt;/span&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#f5f3ff">📋</div>
+          <h3>Form mein Book Options badlna</h3>
+          <span class="line-tag">Line 619–626</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Dropdown options</div>
+            <pre>&lt;select id="formSubject"&gt;
+  &lt;option value="music"&gt;<span class="hl">MUSIC MCQs Masterbook</span>&lt;/option&gt;
+  &lt;option value="history"&gt;<span class="hl">History MCQs Masterbook</span>&lt;/option&gt;
+  <span class="comment">&lt;!-- Naya option add karna: --&gt;</span>
+  &lt;option value="science"&gt;<span class="green">Science MCQs Masterbook</span>&lt;/option&gt;
+&lt;/select&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 4: LINKS
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-links">
+
+      <div class="info-box info">
+        <strong>🔍 Easy Tarika:</strong> index.html mein <kbd>Ctrl</kbd>+<kbd>H</kbd> (Find & Replace) use karo — purana URL daalo, naya URL daalo, "Replace All" karo. Ek click mein saari jagah change!
+      </div>
+
+      <div class="edit-section open">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#dcfce7">📱</div>
+          <h3>WhatsApp Number Badlna</h3>
+          <span class="line-tag">4 jagah hai</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <p style="margin-bottom:12px;color:#475569">File mein <strong>4 jagah</strong> WhatsApp link hai. Ctrl+H se ek baar mein sab replace karo:</p>
+          <div class="code-wrap">
+            <div class="code-label before">Dhundho (Find what):</div>
+            <pre>wa.me/<span class="red">919005102878</span></pre>
+          </div>
+          <div class="code-wrap">
+            <div class="code-label after">Replace karo (Replace with):</div>
+            <pre>wa.me/<span class="green">91AAPKAANAUMBER</span></pre>
+          </div>
+          <div class="info-box warn">
+            <strong>Country code:</strong> India ke liye <strong>91</strong> lagata hai, phir 10-digit mobile number (bina 0 ke).
+            <br>Example: 9876543210 → <code>wa.me/919876543210</code>
+          </div>
+          <div class="info-box tip">
+            <strong>WhatsApp message bhi change kar sakte ho:</strong><br>
+            <code>?text=Hello%20Shiksha%20Planet...</code> mein apna custom message likhо.
+            Spaces ki jagah <code>%20</code> use karo.
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fff0f0">▶️</div>
+          <h3>YouTube Channel Link Badlna</h3>
+          <span class="line-tag">3 jagah hai</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">Ctrl+H se replace karo:</div>
+            <pre><span class="comment">Find:    </span>youtube.com/@<span class="red">sangeetplanet</span>
+<span class="comment">Replace: </span>youtube.com/@<span class="green">AAPKACHANNEL</span></pre>
+          </div>
+          <p style="font-size:0.88rem;color:#475569;margin-top:8px">Handle text bhi update karo (line 470): <code>&lt;span class="social-handle"&gt;@sangeetplanet&lt;/span&gt;</code></p>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fdf0ff">📸</div>
+          <h3>Instagram Link Badlna</h3>
+          <span class="line-tag">3 jagah hai</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">Ctrl+H se replace karo:</div>
+            <pre><span class="comment">Find:    </span>instagram.com/<span class="red">shikshaplanet.in</span>
+<span class="comment">Replace: </span>instagram.com/<span class="green">AAPKAID</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#eff6ff">🌐</div>
+          <h3>Main Portal / Website Link Badlna</h3>
+          <span class="line-tag">15+ jagah hai</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">Ctrl+H se replace karo:</div>
+            <pre><span class="comment">Find:    </span>www.shikshaplanet.in
+<span class="comment">Replace: </span>www.<span class="green">AAPKIWEBSITE.com</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fffbeb">🛒</div>
+          <h3>Book "Buy Now" Links Badlna</h3>
+          <span class="line-tag">Line 284, 306, 328, 349</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Har book ke liye alag link set kar sakte ho</div>
+            <pre><span class="comment">&lt;!-- Book 1 (Line 284): --&gt;</span>
+&lt;a href="<span class="hl">https://www.shikshaplanet.in/music-book</span>" ...&gt;Buy Now&lt;/a&gt;
+
+<span class="comment">&lt;!-- Book 2 (Line 306): --&gt;</span>
+&lt;a href="<span class="hl">https://www.shikshaplanet.in/history-book</span>" ...&gt;Buy Now&lt;/a&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 5: COLORS
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-colors">
+
+      <div class="info-box info">
+        <strong>📁 File:</strong> style.css kholo → sabse upar `:root { }` section dhundho (Line 1–25)
+      </div>
+
+      <div class="edit-section open">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#eff6ff">🎨</div>
+          <h3>Main Color Variables (CSS Root)</h3>
+          <span class="line-tag">style.css Line 1–25</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">style.css — :root section</div>
+            <pre>:root {
+  <span class="comment">/* ── MAIN BLUE SHADES ── */</span>
+  --blue-950: <span class="hl">#0c1a40</span>;   <span class="comment">← Navbar/Footer background (sabse dark)</span>
+  --blue-900: <span class="hl">#0f2257</span>;   <span class="comment">← Hero section background</span>
+  --blue-800: <span class="hl">#1e3a8a</span>;   <span class="comment">← Buttons, accents</span>
+  --blue-700: <span class="hl">#1d4ed8</span>;   <span class="comment">← Primary button color</span>
+  --blue-600: <span class="hl">#2563eb</span>;   <span class="comment">← Hover states</span>
+  --blue-500: <span class="hl">#3b82f6</span>;   <span class="comment">← Light blue accents</span>
+
+  <span class="comment">/* ── YEH MAT BADLO (Official brand colors): ── */</span>
+  --green-wa: <span class="green">#25D366</span>;  <span class="comment">← WhatsApp green</span>
+  --yt-red:   <span class="red">#FF0000</span>;  <span class="comment">← YouTube red</span>
+}</pre>
+          </div>
+
+          <div class="info-box tip">
+            <strong>💡 Color Picker:</strong> Google mein "color picker" search karo — directly hex code milega. Jaise: <code>#1e3a8a</code> (dark blue)
+          </div>
+
+          <h4 style="margin:16px 0 8px;font-size:0.95rem">Popular Color Themes:</h4>
+          <div class="quick-edit-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
+            <div class="quick-card" style="border-color:#1e3a8a">
+              <div style="height:32px;background:linear-gradient(135deg,#0c1a40,#3b82f6);border-radius:8px;margin-bottom:10px"></div>
+              <h4>Deep Blue (Current)</h4>
+              <p style="font-size:0.75rem"><code>#0c1a40 → #3b82f6</code></p>
+            </div>
+            <div class="quick-card" style="border-color:#14532d">
+              <div style="height:32px;background:linear-gradient(135deg,#14532d,#22c55e);border-radius:8px;margin-bottom:10px"></div>
+              <h4>Forest Green</h4>
+              <p style="font-size:0.75rem"><code>#14532d → #22c55e</code></p>
+            </div>
+            <div class="quick-card" style="border-color:#7c2d12">
+              <div style="height:32px;background:linear-gradient(135deg,#7c2d12,#f97316);border-radius:8px;margin-bottom:10px"></div>
+              <h4>Deep Orange</h4>
+              <p style="font-size:0.75rem"><code>#7c2d12 → #f97316</code></p>
+            </div>
+            <div class="quick-card" style="border-color:#4c1d95">
+              <div style="height:32px;background:linear-gradient(135deg,#4c1d95,#a78bfa);border-radius:8px;margin-bottom:10px"></div>
+              <h4>Royal Purple</h4>
+              <p style="font-size:0.75rem"><code>#4c1d95 → #a78bfa</code></p>
+            </div>
+          </div>
+
+          <div class="info-box warn">
+            <strong>⚠️ Theme change karne ka tarika:</strong><br>
+            style.css mein <kbd>Ctrl</kbd>+<kbd>H</kbd> use karo. Old color replace karo new color se.
+            Jaise: Find <code>#0c1a40</code> → Replace <code>#14532d</code>.
+            Phir baaki blue values bhi match karke change karo.
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fffbeb">🌟</div>
+          <h3>Portal Button Color (Gold/Yellow)</h3>
+          <span class="line-tag">style.css Line ~185</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">style.css — .btn-portal</div>
+            <pre>.btn-portal {
+  background: linear-gradient(135deg, <span class="hl">#fbbf24</span>, <span class="hl">#f59e0b</span>);
+  <span class="comment">← Yeh gold/yellow color hai. Badlna ho toh yeh hex codes change karo.</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 6: IMAGES
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-images">
+
+      <div class="info-box info">
+        <strong>📁 Images Folder:</strong> <code>Landing Page 2 → images →</code> yahan sabhi book images hain.
+      </div>
+
+      <div class="edit-section open">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#eff6ff">🖼️</div>
+          <h3>Existing Book Image Replace Karna</h3>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <p><strong>Apni image prepare karo:</strong> PNG ya JPG format. Recommended size: <strong>400×550 px</strong> (book cover ratio).</p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <p><strong>Rename karo:</strong> Exact same naam rakho jaise purani file ka tha. Jaise Book 1 ke liye naam: <code>music_mcq_book.png</code></p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <p><strong>Copy karo:</strong> Nai image ko <code>images/</code> folder mein paste karo (overwrite karo purani file ko).</p>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <p><strong>Browser mein check karo:</strong> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> se hard refresh karo.</p>
+            </div>
+          </div>
+
+          <div class="code-wrap">
+            <div class="code-label">Current image file names (images/ folder mein):</div>
+            <pre>images/
+├── <span class="hl">music_mcq_book.png</span>      ← Book 1
+├── <span class="hl">history_mcq_book.png</span>    ← Book 2
+├── <span class="hl">gk_book.png</span>             ← Book 3
+└── <span class="hl">hindi_lit_book.png</span>      ← Book 4</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#ecfdf5">📝</div>
+          <h3>Alag Naam Wali Image Use Karna</h3>
+          <span class="line-tag">index.html — Line 271, 293, 315, 336</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <p style="margin-bottom:12px;color:#475569">Agar aap naye naam se image add karna chahte ho toh index.html mein <code>src</code> attribute update karo:</p>
+          <div class="code-wrap">
+            <div class="code-label before">PEHLE (Line 271):</div>
+            <pre>&lt;img src="images/<span class="red">music_mcq_book.png</span>" .../&gt;</pre>
+          </div>
+          <div class="code-wrap">
+            <div class="code-label after">BAAD MEIN:</div>
+            <pre>&lt;img src="images/<span class="green">meri_nai_image.png</span>" .../&gt;</pre>
+          </div>
+          <div class="info-box warn">
+            <strong>⚠️ Case-sensitive:</strong> File naam exactly match karna chahiye — capital/small letters bhi same rakhein.
+            <code>Music_Book.PNG</code> aur <code>music_book.png</code> alag hain!
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 7: NEW ADD KAREIN
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-add">
+
+      <div class="edit-section open">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#ecfdf5">➕</div>
+          <h3>Naya Book Card Add Karna</h3>
+          <span class="line-tag">Line 353 ke baad paste karo</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <p>Book ki image <code>images/</code> folder mein copy karo (jaise <code>science_book.png</code>)</p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <p>index.html mein <code>id="productHindiMCQ"</code> dhundho (Ctrl+F se)</p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <p>Us article block ke <strong>baad</strong> (aur closing <code>&lt;/div&gt;</code> se pehle) yeh code paste karo:</p>
+            </div>
+          </div>
+          <div class="code-wrap">
+            <div class="code-label">Naya Book Card — Copy aur Paste Karo:</div>
+            <pre><span class="comment">&lt;!-- NAYA BOOK ↓ --&gt;</span>
+&lt;article class="product-card" id="productScienceMCQ"&gt;
+  &lt;div class="product-badge product-badge--new"&gt;<span class="hl">New Launch</span>&lt;/div&gt;
+  &lt;div class="product-img-wrap"&gt;
+    &lt;img src="images/<span class="hl">science_book.png</span>" 
+         alt="Science MCQs Masterbook" 
+         class="product-img" loading="lazy" /&gt;
+    &lt;div class="product-img-glow"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="product-info"&gt;
+    &lt;div class="product-category"&gt;<span class="hl">Science · Competitive Exams</span>&lt;/div&gt;
+    &lt;h3 class="product-title"&gt;<span class="hl">Science MCQs Masterbook</span>&lt;/h3&gt;
+    &lt;p class="product-desc"&gt;<span class="hl">Apna description yahan likhein...</span>&lt;/p&gt;
+    &lt;div class="product-footer"&gt;
+      &lt;div class="product-price"&gt;
+        &lt;span class="price-curr"&gt;<span class="hl">₹349</span>&lt;/span&gt;
+        &lt;span class="price-old"&gt;<span class="hl">₹499</span>&lt;/span&gt;
+        &lt;span class="price-discount"&gt;<span class="hl">30% OFF</span>&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;a href="<span class="hl">https://www.shikshaplanet.in</span>" 
+         target="_blank" rel="noopener noreferrer" 
+         class="btn btn-buy"&gt;Buy Now&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#fffbeb">🔗</div>
+          <h3>Navbar Mein Naya Menu Item Add Karna</h3>
+          <span class="line-tag">Line 42–47</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="code-wrap">
+            <div class="code-label">index.html — Lines 42–47</div>
+            <pre>&lt;nav class="nav-links"&gt;
+  &lt;a href="#about" class="nav-link"&gt;About&lt;/a&gt;
+  &lt;a href="#products" class="nav-link"&gt;Books&lt;/a&gt;
+  &lt;a href="#community" class="nav-link"&gt;Community&lt;/a&gt;
+  &lt;a href="#contact" class="nav-link"&gt;Contact&lt;/a&gt;
+  <span class="comment">&lt;!-- Naya item add karo: --&gt;</span>
+  &lt;a href="#<span class="green">section-id</span>" class="nav-link"&gt;<span class="green">Naya Item</span>&lt;/a&gt;
+&lt;/nav&gt;</pre>
+          </div>
+          <div class="info-box warn">
+            <strong>Mobile menu bhi update karo!</strong> Lines 68–72 mein bhi same change karo warna mobile par nahi dikhega.
+          </div>
+        </div>
+      </div>
+
+      <div class="edit-section">
+        <div class="edit-section-header" onclick="toggleSection(this)">
+          <div class="section-icon" style="background:#f5f3ff">🗑️</div>
+          <h3>Koi Section Remove Karna</h3>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="edit-section-body">
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <p>index.html mein us section ka <code>id</code> dhundho (Ctrl+F se). Jaise: <code>id="testimonials"</code></p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <p>Opening tag dhundho: <code>&lt;section class="testimonials</code></p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <p>Opening <code>&lt;section&gt;</code> se closing <code>&lt;/section&gt;</code> tak saara select karke <kbd>Delete</kbd> dabao</p>
+            </div>
+          </div>
+          <div class="info-box tip">
+            <strong>💡 VS Code Tip:</strong> Opening tag par click karo, phir Ctrl+Shift+K se poori section delete ho jaati hai.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 8: QUICK REF
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-ref">
+
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="tableSearch" 
+               placeholder="Search karo — jaise 'price', 'hero', 'youtube'..." 
+               oninput="filterTable()" />
+      </div>
+
+      <div style="overflow-x:auto;border-radius:12px;border:1px solid #e2e8f0">
+        <table class="ref-table" id="refTable">
+          <thead>
+            <tr>
+              <th>Kya Badalna Hai</th>
+              <th>File</th>
+              <th>Line Number(s)</th>
+              <th>Dhundho (Ctrl+F)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Brand naam (main)</td><td>index.html</td><td><span class="line-num">37–38</span></td><td><code>brand-main</code></td></tr>
+            <tr><td>Brand naam (footer)</td><td>index.html</td><td><span class="line-num">745–746</span></td><td><code>brand-main</code></td></tr>
+            <tr><td>Hero badge text</td><td>index.html</td><td><span class="line-num">97</span></td><td><code>badge-dot</code></td></tr>
+            <tr><td>Hero headline (Line 1)</td><td>index.html</td><td><span class="line-num">100</span></td><td><code>Ace Every Exam</code></td></tr>
+            <tr><td>Hero gradient text</td><td>index.html</td><td><span class="line-num">101</span></td><td><code>hero-gradient-text</code></td></tr>
+            <tr><td>Hero description</td><td>index.html</td><td><span class="line-num">105</span></td><td><code>hero-desc</code></td></tr>
+            <tr><td>Stat 1 (50,000+)</td><td>index.html</td><td><span class="line-num">126–128</span></td><td><code>50,000+</code></td></tr>
+            <tr><td>Stat 2 (200+)</td><td>index.html</td><td><span class="line-num">131–133</span></td><td><code>MCQ Topics</code></td></tr>
+            <tr><td>Stat 3 (10+ Yrs)</td><td>index.html</td><td><span class="line-num">136–138</span></td><td><code>10+ Yrs</code></td></tr>
+            <tr><td>Exam badges strip</td><td>index.html</td><td><span class="line-num">154–161</span></td><td><code>trust-badge</code></td></tr>
+            <tr><td>About heading</td><td>index.html</td><td><span class="line-num">217</span></td><td><code>Empowering Aspirants</code></td></tr>
+            <tr><td>About description</td><td>index.html</td><td><span class="line-num">218–223</span></td><td><code>about-desc</code></td></tr>
+            <tr><td>Pillar 1 (Practice)</td><td>index.html</td><td><span class="line-num">228–230</span></td><td><code>Practice-Driven</code></td></tr>
+            <tr><td>Pillar 2 (Exam)</td><td>index.html</td><td><span class="line-num">235–237</span></td><td><code>Exam-Focused</code></td></tr>
+            <tr><td>Pillar 3 (Expert)</td><td>index.html</td><td><span class="line-num">242–244</span></td><td><code>Expert-Authored</code></td></tr>
+            <tr><td><strong>Book 1 naam</strong></td><td>index.html</td><td><span class="line-num">276</span></td><td><code>MUSIC MCQs Masterbook</code></td></tr>
+            <tr><td><strong>Book 1 price</strong></td><td>index.html</td><td><span class="line-num">280–282</span></td><td><code>₹399</code></td></tr>
+            <tr><td><strong>Book 1 description</strong></td><td>index.html</td><td><span class="line-num">277</span></td><td><code>1000+ topic-wise</code></td></tr>
+            <tr><td><strong>Book 2 naam</strong></td><td>index.html</td><td><span class="line-num">298</span></td><td><code>History MCQs</code></td></tr>
+            <tr><td><strong>Book 2 price</strong></td><td>index.html</td><td><span class="line-num">302–304</span></td><td><code>₹349</code></td></tr>
+            <tr><td><strong>Book 3 naam</strong></td><td>index.html</td><td><span class="line-num">320</span></td><td><code>GK & Current Affairs</code></td></tr>
+            <tr><td><strong>Book 3 price</strong></td><td>index.html</td><td><span class="line-num">324–326</span></td><td><code>₹299</code></td></tr>
+            <tr><td><strong>Book 4 naam</strong></td><td>index.html</td><td><span class="line-num">341</span></td><td><code>Hindi Literature</code></td></tr>
+            <tr><td><strong>Book 4 price</strong></td><td>index.html</td><td><span class="line-num">345–347</span></td><td><code>₹379</code></td></tr>
+            <tr><td>YouTube card text</td><td>index.html</td><td><span class="line-num">469–471</span></td><td><code>Subscribe on YouTube</code></td></tr>
+            <tr><td>Instagram card text</td><td>index.html</td><td><span class="line-num">500–502</span></td><td><code>Follow us on Instagram</code></td></tr>
+            <tr><td>Review 1 text</td><td>index.html</td><td><span class="line-num">556</span></td><td><code>testiRahul</code></td></tr>
+            <tr><td>Review 2 text</td><td>index.html</td><td><span class="line-num">567</span></td><td><code>testiPriya</code></td></tr>
+            <tr><td>Review 3 text</td><td>index.html</td><td><span class="line-num">578</span></td><td><code>testiAmit</code></td></tr>
+            <tr><td>Contact form heading</td><td>index.html</td><td><span class="line-num">600</span></td><td><code>Send Us Your Query</code></td></tr>
+            <tr><td>Form dropdown options</td><td>index.html</td><td><span class="line-num">619–626</span></td><td><code>formSubject</code></td></tr>
+            <tr><td><strong>WhatsApp number</strong></td><td>index.html</td><td><span class="line-num">4 jagah</span></td><td><code>919005102878</code></td></tr>
+            <tr><td>Email address</td><td>index.html</td><td><span class="line-num">679</span></td><td><code>contact@shiksha</code></td></tr>
+            <tr><td>Footer tagline</td><td>index.html</td><td><span class="line-num">749</span></td><td><code>footer-tagline</code></td></tr>
+            <tr><td><strong>Colors (all blues)</strong></td><td>style.css</td><td><span class="line-num">1–25</span></td><td><code>:root</code></td></tr>
+            <tr><td>Portal button color</td><td>style.css</td><td><span class="line-num">~185</span></td><td><code>.btn-portal</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════
+         TAB 9: FAQ
+    ════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-faq">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Changes karne ke baad browser mein nahi dikh raha? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> dabao (Hard Refresh). Yeh browser cache clear karke fresh version load karta hai. Agar phir bhi nahi dikh raha, file save hua hai ya nahi check karo (<kbd>Ctrl</kbd>+<kbd>S</kbd>).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Book image nahi dikh rahi — error aa raha hai? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          3 cheezein check karo:
+          <ol style="margin:8px 0 0 20px;line-height:2">
+            <li>Image <code>images/</code> folder mein hai ya nahi?</li>
+            <li>index.html mein <code>src="images/NAAM.png"</code> — exact naam match karta hai?</li>
+            <li>File extension sahi hai? (.png vs .jpg vs .PNG — case sensitive!)</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          WhatsApp button click karne par kuch nahi hota? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          Phone/computer mein WhatsApp installed hona chahiye. Desktop par <strong>WhatsApp Web</strong> browser mein open hota hai — isliye internet connection chahiye. Mobile par seedha WhatsApp app open hoga.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Mobile par website ka layout bigad gaya? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          style.css ke <code>@media</code> sections (line ~580 se aage) mat chheedo — yeh responsive design hai. Agar kisi aur change se bigad gaya ho toh us specific change ko <kbd>Ctrl</kbd>+<kbd>Z</kbd> se undo karo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Galti se kuch delete ho gaya — wapas kaise laun? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          Agar file still open hai: <kbd>Ctrl</kbd>+<kbd>Z</kbd> dabao (unlimited undo).<br/><br/>
+          Agar file save ho gayi aur band bhi kar diya: <strong>Antigravity se bol do</strong> — original file restore kar denge!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Ek aur section (jaise FAQ ya Gallery) add karna hai? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          Seedha Antigravity mein message karo: <em>"Website mein ek naya [SECTION TYPE] section add karna hai"</em> — aur main woh section build karke file mein add kar doonga!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Website ko hosting par deploy kaise karein? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          <strong>Sabse easy options:</strong>
+          <ol style="margin:8px 0 0 20px;line-height:2">
+            <li><strong>Netlify Drop</strong> — <a href="https://app.netlify.com/drop" target="_blank" style="color:#2563eb">app.netlify.com/drop</a> par jaao, poora folder drag & drop karo — free hosting!</li>
+            <li><strong>GitHub Pages</strong> — GitHub account banana hoga</li>
+            <li><strong>cPanel Hosting</strong> — Agar aapke paas hosting hai toh File Manager mein upload karo</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Konsa editor (software) use karoon? <span>▼</span>
+        </div>
+        <div class="faq-a">
+          <strong>Recommended (free):</strong>
+          <ul style="margin:8px 0 0 20px;line-height:2">
+            <li><strong>VS Code</strong> — code.visualstudio.com — Best option, "Live Server" extension ke saath automatic preview milta hai</li>
+            <li><strong>Notepad++</strong> — notepad-plus-plus.org — Simple aur fast</li>
+            <li><strong>Regular Notepad</strong> — Windows built-in, works but no syntax highlighting</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /container -->
+
+  <div class="page-footer">
+    <p>🛠️ AV Publications & Shiksha Planet — Editing Guide</p>
+    <p style="margin-top:4px">Website file: <a href="index.html">index.html</a> | CSS: <a href="style.css">style.css</a></p>
+  </div>
+
+  <script>
+    /* ── Tab switching ── */
+    function switchTab(name, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    /* ── Section accordion ── */
+    function toggleSection(header) {
+      header.parentElement.classList.toggle('open');
+    }
+
+    /* ── FAQ accordion ── */
+    function toggleFaq(el) {
+      el.parentElement.classList.toggle('open');
+    }
+
+    /* ── Copy button ── */
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre');
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    /* ── Table search ── */
+    function filterTable() {
+      const q = document.getElementById('tableSearch').value.toLowerCase();
+      document.querySelectorAll('#refTable tbody tr').forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
