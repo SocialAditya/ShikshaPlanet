@@ -1614,6 +1614,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 /* Tablet small – 880px */
 @media (max-width: 880px) {
   .nav-links { display: none; }
+  #visitPortalBtn { display: none; }
   .hamburger { display: flex; }
 
   .about-grid {
@@ -1648,6 +1649,14 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 /* Mobile – 640px */
 @media (max-width: 640px) {
   :root { --navbar-h: 64px; }
+  .badge-new-batch {
+    right: 8px;
+    top: -12px;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+  .hero-title { font-size: 2.5rem; }
+  #visitPortalBtn { display: none; }
   .section { padding: 64px 0; }
 
   .hero-content { padding: 48px 0; }
