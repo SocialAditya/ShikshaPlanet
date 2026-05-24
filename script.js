@@ -44,7 +44,15 @@
     document.body.style.overflow = '';
   }
 
-  if (hamburger) hamburger.addEventListener('click', openMenu);
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      if (overlay.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  }
   if (closeBtn)  closeBtn.addEventListener('click', closeMenu);
 
   // Close on overlay link click
