@@ -1615,9 +1615,28 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 /* Tablet small – 880px */
 @media (max-width: 880px) {
-  .nav-links { display: none; }
+  .nav-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    padding: 12px 0;
+  }
+  .brand { margin-bottom: 8px; }
+  .nav-links {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+  }
+  .nav-links::-webkit-scrollbar { display: none; } /* Hide scrollbar Safari/Chrome */
+  .nav-link { font-size: 0.85rem; padding: 6px 10px; }
+  
   #visitPortalBtn { display: none; }
-  .hamburger { display: flex; }
+  .hamburger { display: none; }
 
   .about-grid {
     grid-template-columns: 1fr;
