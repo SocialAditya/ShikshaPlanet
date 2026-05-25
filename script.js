@@ -299,6 +299,22 @@
     }
   });
 
+  /* ── 15. Bottom Nav Active Tab on Scroll ── */
+  const bottomNavItems = document.querySelectorAll('.bottom-nav-item[href^="#"]');
+  function updateBottomNav() {
+    const sections = ['products'];
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    bottomNavItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('href') === '#' + current) item.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateBottomNav, { passive: true });
+
   console.log('%c🎓 AV Publications & Shiksha Planet | Premium Landing Page Loaded', 'color:#3b82f6;font-weight:bold;font-size:12px;');
 
 })();
