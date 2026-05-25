@@ -1766,3 +1766,96 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
     border-top-color: var(--blue-400);
   }
 }
+
+/* ============================================================
+   DOWNLOAD APP POPUP
+============================================================ */
+.download-popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+.download-popup-overlay.active {
+  display: flex;
+  animation: fadeInUp 0.3s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.download-popup-box {
+  background: linear-gradient(135deg, #0c1a40 0%, #1a2a60 100%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 28px 20px 24px;
+  position: relative;
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.5);
+}
+.download-popup-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.download-popup-close:hover { background: rgba(255,255,255,0.2); }
+.download-popup-title {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.download-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: inherit;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  color: #fff;
+}
+.download-btn:hover { transform: scale(1.02); opacity: 0.92; }
+.download-btn div { display: flex; flex-direction: column; }
+.download-btn small { font-size: 0.7rem; opacity: 0.75; letter-spacing: 0.05em; text-transform: uppercase; }
+.download-btn strong { font-size: 1rem; font-weight: 700; }
+.download-btn--play { background: #1a1a2e; border: 1px solid #2d6a4f; }
+.download-btn--play svg { color: #78c850; }
+.download-btn--mac { background: #1a1a2e; border: 1px solid #555; }
+.download-btn--mac svg { color: #ccc; }
+.download-btn--win { background: #1a1a2e; border: 1px solid #0078d4; }
+.download-btn--win svg { color: #0078d4; }
+#bnDownload {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Responsive Download Popup Buttons */
+@media (min-width: 881px) {
+  .hide-on-desktop { display: none !important; }
+}
+@media (max-width: 880px) {
+  .hide-on-mobile { display: none !important; }
+}

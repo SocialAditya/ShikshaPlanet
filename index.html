@@ -765,16 +765,63 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
       <span>YouTube</span>
     </a>
-    <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="bottom-nav-item" id="bnInstagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      <span>Instagram</span>
-    </a>
+    <!-- Download App Tab -->
+    <button class="bottom-nav-item" id="bnDownload" onclick="document.getElementById('downloadPopup').classList.add('active')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="3"/><path d="M12 6v6m0 0l-3-3m3 3l3-3"/></svg>
+      <span>Download App</span>
+    </button>
     <a href="https://www.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="bottom-nav-item" id="bnCourses">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       <span>Courses</span>
     </a>
   </nav>
 
+  <!-- Download App Popup -->
+  <div class="download-popup-overlay" id="downloadPopup" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="download-popup-box">
+      <button class="download-popup-close" onclick="document.getElementById('downloadPopup').classList.remove('active')" aria-label="Close">✕</button>
+      <h3 class="download-popup-title">📲 Download App</h3>
+      <div class="download-options">
+        <a href="https://play.google.com/store/apps/details?id=co.diy17.knroa" id="dlGooglePlay" target="_blank" rel="noopener noreferrer" class="download-btn download-btn--play">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.99.19l11.53-11.53L12.23 9l-9.05 14.76zM20.7 10.56l-2.6-1.5-3.18 3.18 3.18 3.18 2.63-1.52c.75-.43.75-1.91-.03-2.34zM3.03.37C2.73.57 2.5.9 2.5 1.35v21.3c0 .45.23.78.53.98L15.06 12 3.03.37zM4.17.05L15.7 11.57l-3.47 3.47L4.17.05z"/></svg>
+          <div>
+            <small>GET IT ON</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+        <a href="https://wa.me/919005102878?text=Hello%20Shiksha%20Planet,%20I%20want%20to%20download%20App%20on%20iPhone" id="dlAppleStore" target="_blank" rel="noopener noreferrer" class="download-btn download-btn--mac hide-on-desktop">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.19 1.34-2.16 3.99.03 3.16 2.63 4.21 2.66 4.22-.03.07-.41 1.44-1.35 2.91M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div>
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="https://appx-static.akamai.net.in/mac" id="dlIntelMac" target="_blank" rel="noopener noreferrer" class="download-btn download-btn--mac hide-on-mobile">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.19 1.34-2.16 3.99.03 3.16 2.63 4.21 2.66 4.22-.03.07-.41 1.44-1.35 2.91M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div>
+            <small>Mac App</small>
+            <strong>Intel Chip</strong>
+          </div>
+        </a>
+        <a href="https://appx-static.akamai.net.in/mac" id="dlAppleMac" target="_blank" rel="noopener noreferrer" class="download-btn download-btn--mac hide-on-mobile">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.19 1.34-2.16 3.99.03 3.16 2.63 4.21 2.66 4.22-.03.07-.41 1.44-1.35 2.91M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div>
+            <small>Mac App</small>
+            <strong>Apple Chip</strong>
+          </div>
+        </a>
+        <a href="https://appx-content-v2.classx.co.in/windows/Shiksha" id="dlWindows" target="_blank" rel="noopener noreferrer" class="download-btn download-btn--win hide-on-mobile">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+          <div>
+            <small>Download for</small>
+            <strong>Windows</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
