@@ -1190,9 +1190,9 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 .testi-scroll-action {
   display: flex;
-  justify-content: flex-end;
-  margin-top: -10px;
-  padding-right: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0;
 }
 
 .testi-scroll-btn {
