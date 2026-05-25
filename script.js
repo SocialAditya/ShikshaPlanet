@@ -166,9 +166,26 @@
         return;
       }
 
-      // Simulate submission
+      // Get all form fields
+      const phone   = document.getElementById('formPhone').value.trim();
+      const subject = document.getElementById('formSubject').value;
+
+      // Build WhatsApp message
+      const waMessage = 
+        `📩 *New Enquiry - Shiksha Planet*\n\n` +
+        `👤 *Name:* ${name}\n` +
+        `📞 *Phone:* ${phone || 'Not provided'}\n` +
+        `📧 *Email:* ${email}\n` +
+        `📚 *Subject:* ${subject || 'General Enquiry'}\n` +
+        `💬 *Message:*\n${message}`;
+
+      // WhatsApp redirect
+      const waNumber = '919005102878';
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+      // Show loading on button
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
+      submitBtn.textContent = 'Opening WhatsApp…';
 
       setTimeout(() => {
         form.reset();
@@ -177,7 +194,9 @@
         submitBtn.disabled = false;
         submitBtn.innerHTML = `Send Enquiry <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
         setTimeout(() => { formSuccess.hidden = true; }, 6000);
-      }, 1200);
+        // Open WhatsApp
+        window.open(waUrl, '_blank');
+      }, 800);
     });
 
     // Clear error styling on input
