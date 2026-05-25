@@ -1615,28 +1615,9 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 /* Tablet small – 880px */
 @media (max-width: 880px) {
-  .nav-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    height: auto;
-    padding: 12px 0;
-  }
-  .brand { margin-bottom: 8px; }
-  .nav-links {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: 4px;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-  }
-  .nav-links::-webkit-scrollbar { display: none; } /* Hide scrollbar Safari/Chrome */
-  .nav-link { font-size: 0.85rem; padding: 6px 10px; }
-  
+  .nav-links { display: none; }
   #visitPortalBtn { display: none; }
-  .hamburger { display: none; }
+  .hamburger { display: flex; }
 
   .about-grid {
     grid-template-columns: 1fr;
@@ -1708,7 +1689,80 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
   .about-card-stack { transform: scale(0.85); }
 
-  .float-wa { bottom: 20px; right: 20px; width: 54px; height: 54px; }
+  .float-wa { bottom: 80px; right: 20px; width: 54px; height: 54px; }
   .float-wa-svg { width: 54px; height: 54px; }
-  .scroll-top { bottom: 84px; right: 20px; }
+  .scroll-top { bottom: 148px; right: 20px; }
+}
+
+/* ============================================================
+   MOBILE BOTTOM NAVIGATION BAR (YouTube-style)
+============================================================ */
+.mobile-bottom-nav {
+  display: none; /* Hidden on desktop */
+}
+
+@media (max-width: 880px) {
+  /* Add padding at bottom so content not hidden behind nav bar */
+  body {
+    padding-bottom: 70px;
+  }
+
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(8, 20, 54, 0.97);
+    backdrop-filter: blur(16px) saturate(160%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    height: 64px;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 0;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex: 1;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 4px 10px;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-top: 2px solid transparent;
+    position: relative;
+  }
+
+  .bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  .bottom-nav-item:hover,
+  .bottom-nav-item:active {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .bottom-nav-item:hover svg {
+    transform: translateY(-2px);
+  }
+
+  /* Active tab highlight */
+  .bottom-nav-item.active {
+    color: var(--blue-400);
+    border-top-color: var(--blue-400);
+  }
 }
