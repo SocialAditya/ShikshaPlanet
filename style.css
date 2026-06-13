@@ -1671,6 +1671,195 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 }
 
 /* ============================================================
+   COURSES SECTION (SEO OPTIMIZED)
+============================================================ */
+.courses-section {
+  background-color: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  max-width: 1100px;
+  margin: 48px auto 0;
+}
+
+.course-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--blue-600);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.course-card.popular-card {
+  border: 2px solid var(--blue-600);
+  box-shadow: var(--shadow-lg);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.course-card-header {
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 20px;
+}
+
+.course-card-header h3 {
+  font-size: 1.8rem;
+  color: var(--blue-950);
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.course-tagline {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+}
+
+.course-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.original-price {
+  font-size: 1.2rem;
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.current-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--blue-950);
+}
+
+.price-suffix {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.validity-banner {
+  background: var(--blue-50);
+  color: var(--blue-900);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid var(--blue-600);
+}
+
+.validity-banner.date-banner {
+  background: #fffbeb;
+  color: #78350f;
+  border-left-color: #d97706;
+}
+
+.validity-banner .icon {
+  font-size: 1.2rem;
+}
+
+.target-exams-box {
+  margin-bottom: 24px;
+}
+
+.target-exams-box h4,
+.course-features-list h4 {
+  font-size: 0.95rem;
+  color: var(--blue-900);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.exams-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exams-tags span {
+  background: var(--gray-100);
+  color: var(--gray-700);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--gray-200);
+}
+
+.course-features-list {
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.course-features-list ul {
+  list-style: none;
+}
+
+.course-features-list li {
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  margin-bottom: 10px;
+  padding-left: 24px;
+  position: relative;
+  text-align: left;
+}
+
+.course-features-list li::before {
+  content: "✓";
+  color: var(--blue-600);
+  font-weight: 800;
+  position: absolute;
+  left: 0;
+}
+
+.course-action {
+  margin-top: auto;
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+}
+
+/* ============================================================
    RESPONSIVE DESIGN
 ============================================================ */
 
@@ -1691,6 +1880,15 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 /* Tablet small – 880px */
 @media (max-width: 880px) {
   .nav-links { display: none; }
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 550px;
+    margin: 36px auto 0;
+  }
+  .course-card {
+    padding: 30px 24px;
+  }
   #visitPortalBtn { display: none; }
   .hamburger { display: flex; }
 
