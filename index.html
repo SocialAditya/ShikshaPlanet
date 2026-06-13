@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 <body>
 
@@ -39,19 +39,22 @@
         <a href="https://store.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="nav-link">Our Courses</a>
       </nav>
 
-      <a href="https://store.shikshaplanet.in" target="_blank" rel="noopener noreferrer"
-         class="btn btn-portal" id="visitPortalBtn" aria-label="Visit Main Portal – Shiksha Planet">
+      <a href="https://store.shikshaplanet.in/purchases?type=10" target="_blank" rel="noopener noreferrer"
+         class="btn btn-portal" id="visitPortalBtn" aria-label="My Purchased Batch – Shiksha Planet">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="10"/>
           <line x1="2" y1="12" x2="22" y2="12"/>
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
-        Visit Main Portal
+        My Purchased Batch
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="mobile-nav-right" style="display: flex; align-items: center; gap: 12px;">
+        <a href="https://store.shikshaplanet.in/purchases?type=10" target="_blank" rel="noopener noreferrer" class="btn btn-primary mobile-header-btn">My Purchased Batch</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -66,13 +69,13 @@
       <a href="https://www.instagram.com/shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Instagram</a>
       <a href="https://store.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Our Courses</a>
     </nav>
-    <a href="https://store.shikshaplanet.in" target="_blank" rel="noopener noreferrer" class="btn btn-portal mobile-portal-btn">
+    <a href="https://store.shikshaplanet.in/purchases?type=10" target="_blank" rel="noopener noreferrer" class="btn btn-portal mobile-portal-btn">
       <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10"/>
         <line x1="2" y1="12" x2="22" y2="12"/>
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
       </svg>
-      Visit Main Portal
+      My Purchased Batch
     </a>
   </div>
 
@@ -128,12 +131,25 @@
         </div>
       </div>
       
-      <!-- Promotional Poster Banner -->
-      <div class="hero-banner-wrap" style="position: relative; margin-top: 48px; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto; transition: transform 0.3s ease;">
-        <div class="badge-new-batch">🔥 New Batch</div>
-        <a href="https://store.shikshaplanet.in/new-courses/49-bpsc-tre-4-music-new-batch" target="_blank" rel="noopener noreferrer" style="display: block; cursor: pointer; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid var(--white);">
-          <img src="images/course_banner.png" alt="BPSC TRE 4.0 TGT PGT Course Banner" style="width: 100%; height: auto; display: block; object-fit: cover;" onmouseover="this.parentElement.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.parentElement.style.transform='scale(1)'" />
-        </a>
+      <!-- Promotional Poster Banners -->
+      <div class="hero-banners-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; margin-top: 64px; width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        
+        <!-- Banner 1: Mahapack -->
+        <div class="hero-banner-wrap" style="position: relative; transition: transform 0.3s ease;">
+          <div class="badge-new-batch" style="z-index: 10; padding: 4px 10px; font-size: 11px; top: -28px; right: 4px; border-width: 2px;">🔥 Mahapack Offer</div>
+          <a href="https://store.shikshaplanet.in/new-courses/52-sangeet-shikshak-mahapack" target="_blank" rel="noopener noreferrer" style="display: block; cursor: pointer; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid var(--white);">
+            <img src="images/mahapack_banner.jpg.png" alt="Sangeet Shikshak Mahapack Banner" style="width: 100%; height: auto; display: block; object-fit: cover;" onmouseover="this.parentElement.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.parentElement.style.transform='scale(1)'" />
+          </a>
+        </div>
+
+        <!-- Banner 2: BPSC TRE 4.0 -->
+        <div class="hero-banner-wrap" style="position: relative; transition: transform 0.3s ease;">
+          <div class="badge-new-batch" style="z-index: 10; padding: 4px 10px; font-size: 11px; top: -28px; right: 4px; border-width: 2px;">🔥 New Batch</div>
+          <a href="https://store.shikshaplanet.in/new-courses/49-bpsc-tre-4-music-new-batch" target="_blank" rel="noopener noreferrer" style="display: block; cursor: pointer; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid var(--white);">
+            <img src="images/course_banner.png" alt="BPSC TRE 4.0 TGT PGT Course Banner" style="width: 100%; height: auto; display: block; object-fit: cover;" onmouseover="this.parentElement.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.parentElement.style.transform='scale(1)'" />
+          </a>
+        </div>
+
       </div>
     </div>
 
@@ -525,8 +541,8 @@
         </a>
 
         <!-- Website Card -->
-        <a href="https://store.shikshaplanet.in" target="_blank" rel="noopener noreferrer"
-           class="social-card social-card--web" id="websiteCard" aria-label="Visit Shiksha Planet main portal">
+        <a href="https://store.shikshaplanet.in/purchases?type=10" target="_blank" rel="noopener noreferrer"
+           class="social-card social-card--web" id="websiteCard" aria-label="My Purchased Batch">
           <div class="social-card-glow social-card-glow--web"></div>
           <div class="social-icon-wrap social-icon-wrap--web">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-svg" aria-hidden="true">
@@ -544,13 +560,13 @@
             </svg>
           </div>
           <div class="social-card-text">
-            <span class="social-action">Visit Main Portal</span>
+            <span class="social-action">My Purchased Batch</span>
             <span class="social-handle">shikshaplanet.in</span>
             <span class="social-cta-arrow">→</span>
           </div>
           <div class="social-card-stat">
             <span class="stat-icon">🌐</span>
-            <span>Books, Notes & Resources</span>
+            <span>View your active courses</span>
           </div>
         </a>
 
